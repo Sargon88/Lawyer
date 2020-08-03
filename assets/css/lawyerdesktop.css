@@ -1,0 +1,7 @@
+.loadmodal-dialog{
+    overflow-y: initial !important
+}
+.loadmodal-body{
+    height: 69vh;
+    overflow-y: auto;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Customer Registration</title>
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fontawesome/all.min.css">
+    <link rel="stylesheet" href="/css/lawyerdesktop.css">
+
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/popper/popper.min.js"></script>
+    <script src="/popper/tooltip.min.js"></script>
+    <script src="/moment/moment.js"></script>
+    <script src="/angular/angular.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="controllers/desktop_controller.js"></script>    
+</head>
+
+<!-- load modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="loadmodal" ng-app="desktopApp" ng-controller="LoadModalController">
+    <div class="modal-dialog loadmodal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Customers</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body loadmodal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <input class="float-right" ng-model="query" type="text" placeholder="Filter by" autofocus>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="row">
+                        <div class="col">
+                            <table class="table table-dark">
+                                <tbody>
+                                    <tr ng-repeat="c in customers | filter:query">
+                                        <td><input type="checkbox" ng-checked="c.checked"></td>
+                                        <td>{{c.name}}</td>
+                                        <td>{{c.surname}}</td>
+                                        <td>{{c.age}}</td>
+                                        <td>{{c.gender}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="load()">Load</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- load modal -->
+
+<body class="container" ng-app="desktopApp" ng-controller="DesktopController">
+    
+    <!-- navbar -->
+    <nav class="navbar fixed-top navbar-light bg-light">
+        <a class="navbar-brand">Lawyer Desktop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#loadmodal">Load</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar -->
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <nav class="navbar fixed-bottom navbar-dark bg-dark">
+        <span class="navbar-text text-center">
+            Copyright 2020
+        </span>        
+    </nav>
+    <!-- Footer -->
+
+    <div>{{test}}</div>
+
+</body>
+</html>

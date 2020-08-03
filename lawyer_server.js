@@ -17,7 +17,12 @@ app.use(express.static('assets'));
 
 //load UI
 app.get('/registration', function(req, res){
-	res.sendFile(__dirname + '/customerregistration.html');
+	res.sendFile(__dirname + '/pages/customerregistration.html');
+});
+
+//load desktop UI
+app.get('/desktop', function(req, res){
+	res.sendFile(__dirname + '/pages/desktop.html');
 });
 
 //save new customer
@@ -54,6 +59,9 @@ app.post('/submit', function(req, res) {
 				if(!contains){
 					savedData.push(inputData);
 					console.log("pushed", savedData);
+
+					var id = savedData.length;
+					savedData[id-1].id = id;
 
 					var ws = fs.createWriteStream(savedDataPath);
 					csv

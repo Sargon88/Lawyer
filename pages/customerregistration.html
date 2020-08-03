@@ -15,7 +15,7 @@
     <script src="/moment/moment.js"></script>
     <script src="/angular/angular.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
-    <script src="controller.js"></script>    
+    <script src="controllers/customerregistration_controller.js"></script>    
 </head>
 
 <body class="container" ng-app="regApp" ng-controller="RegistrationController">
@@ -91,7 +91,7 @@
         <tbody>
 
         <tr ng-repeat="c in customers">
-        <th scope="row"></th>
+        <td>{{c.id}}</td>
         <td>{{c.name}}</td>
         <td>{{c.surname}}</td>
         <td>{{c.age}}</td>
